@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan [Nama Mempelai Pria] & [Nama Mempelai Wanita]</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="welcome-content">
+            <p>Dengan hormat, kami mengundang Anda untuk bergabung dalam kebahagiaan kami.</p>
+            <h1>Pernikahan [Nama Mempelai Pria] & [Nama Mempelai Wanita]</h1>
+            <button id="open-invitation-btn">Buka Undangan</button>
+        </div>
+    </div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#mempelai">Mempelai</a></li>
+                <li><a href="#acara">Acara</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#lokasi">Lokasi</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+                <li><a href="#ucapan">Ucapan & Doa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h2>The Wedding Of</h2>
+                <h1>[Nama Mempelai Pria] & [Nama Mempelai Wanita]</h1>
+                <p>Minggu, 14 Februari 2026</p>
+                <div id="countdown" class="countdown"></div>
+            </div>
+        </section>
+
+        <section id="mempelai" class="mempelai">
+            <h2>Mempelai</h2>
+            <div class="mempelai-container">
+                <div class="mempelai-item">
+                    <img src="https://via.placeholder.com/150" alt="Foto Mempelai Pria">
+                    <h3>[Nama Mempelai Pria Lengkap]</h3>
+                    <p>Putra dari Bapak [Nama Ayah Pria] & Ibu [Nama Ibu Pria]</p>
+                </div>
+                <div class="mempelai-and">
+                    <p>&</p>
+                </div>
+                <div class="mempelai-item">
+                    <img src="https://via.placeholder.com/150" alt="Foto Mempelai Wanita">
+                    <h3>[Nama Mempelai Wanita Lengkap]</h3>
+                    <p>Putri dari Bapak [Nama Ayah Wanita] & Ibu [Nama Ibu Wanita]</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="acara" class="acara">
+            <h2>Detail Acara</h2>
+            <div class="acara-item">
+                <h3>Akad Nikah</h3>
+                <p>Minggu, 14 Februari 2026</p>
+                <p>Pukul 09:00 WIB - Selesai</p>
+                <p>[Alamat Lengkap Lokasi Akad]</p>
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad%20Nikah%20%5BNama%20Mempelai%20Pria%5D%20%26%20%5BNama%20Mempelai%20Wanita%5D&details=Akad%20Nikah&location=%5BAlamat%20Lengkap%20Lokasi%20Akad%5D&dates=20260214T020000Z/20260214T050000Z" target="_blank" class="btn-calendar">Tambahkan ke Google Calendar</a>
+            </div>
+            <div class="acara-item">
+                <h3>Resepsi Pernikahan</h3>
+                <p>Minggu, 14 Februari 2026</p>
+                <p>Pukul 11:00 WIB - 15:00 WIB</p>
+                <p>[Alamat Lengkap Lokasi Resepsi]</p>
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi%20Pernikahan%20%5BNama%20Mempelai%20Pria%5D%20%26%20%5BNama%20Mempelai%20Wanita%5D&details=Resepsi%20Pernikahan&location=%5BAlamat%20Lengkap%20Lokasi%20Resepsi%5D&dates=20260214T040000Z/20260214T080000Z" target="_blank" class="btn-calendar">Tambahkan ke Google Calendar</a>
+            </div>
+        </section>
+
+        <section id="galeri" class="galeri">
+            <h2>Galeri Foto</h2>
+            <div class="gallery-container">
+                <img src="https://via.placeholder.com/300x200" alt="Foto Pernikahan 1">
+                <img src="https://via.placeholder.com/300x200" alt="Foto Pernikahan 2">
+                <img src="https://via.placeholder.com/300x200" alt="Foto Pernikahan 3">
+                <img src="https://via.placeholder.com/300x200" alt="Foto Pernikahan 4">
+                <img src="https://via.placeholder.com/300x200" alt="Foto Pernikahan 5">
+                <img src="https://via.placeholder.com/300x200" alt="Foto Pernikahan 6">
+            </div>
+        </section>
+
+        <section id="lokasi" class="lokasi">
+            <h2>Peta Lokasi</h2>
+            <p>Kami sangat menantikan kehadiran Anda di hari bahagia kami.</p>
+            <div id="map" style="height: 400px; width: 100%;"></div>
+            <div class="lokasi-buttons">
+                <a href="https://www.google.com/maps/search/?api=1&query=[Latitude Lokasi],[Longitude Lokasi]" target="_blank" class="btn-map"><i class="fas fa-map-marker-alt"></i> Buka di Google Maps</a>
+                <a href="https://waze.com/ul?ll=[Latitude Lokasi],[Longitude Lokasi]&navigate=yes" target="_blank" class="btn-map"><i class="fab fa-waze"></i> Buka di Waze</a>
+            </div>
+        </section>
+
+        <section id="rsvp" class="rsvp">
+            <h2>Konfirmasi Kehadiran (RSVP)</h2>
+            <p>Mohon konfirmasi kehadiran Anda agar kami dapat mempersiapkan segala sesuatunya dengan baik.</p>
+            <form id="rsvpForm">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" required>
+
+                <label for="kehadiran">Konfirmasi Kehadiran:</label>
+                <select id="kehadiran" name="kehadiran" required>
+                    <option value="">Pilih</option>
+                    <option value="hadir">Akan Hadir</option>
+                    <option value="tidak-hadir">Tidak Dapat Hadir</option>
+                </select>
+
+                <label for="jumlah-tamu">Jumlah Tamu (termasuk Anda):</label>
+                <input type="number" id="jumlah-tamu" name="jumlah-tamu" min="1" value="1" required>
+
+                <label for="pesan-tambahan">Pesan Tambahan (Opsional):</label>
+                <textarea id="pesan-tambahan" name="pesan-tambahan" rows="4"></textarea>
+
+                <button type="submit"><i class="fas fa-paper-plane"></i> Kirim Konfirmasi</button>
+            </form>
+            <div id="rsvpMessage" class="message"></div>
+        </section>
+
+        <section id="ucapan" class="ucapan">
+            <h2>Ucapan & Doa</h2>
+            <p>Silakan tinggalkan ucapan dan doa terbaik Anda untuk kami.</p>
+            <form id="greetingForm">
+                <label for="nama-ucapan">Nama Anda:</label>
+                <input type="text" id="nama-ucapan" name="nama" required>
+
+                <label for="pesan-ucapan">Ucapan & Doa:</label>
+                <textarea id="pesan-ucapan" name="pesan" rows="6" required></textarea>
+
+                <button type="submit"><i class="fas fa-comment-dots"></i> Kirim Ucapan</button>
+            </form>
+            <div id="greetingMessage" class="message"></div>
+            <div id="greetings-list" class="greetings-list">
+                </div>
+        </section>
+
+        <section id="gift" class="gift">
+            <h2>Amplop Digital & Hadiah</h2>
+            <p>Doa restu Anda adalah karunia yang paling berharga bagi kami. Namun, jika Anda ingin memberikan tanda kasih, Anda dapat melakukannya melalui rekening bank berikut:</p>
+            <div class="bank-details">
+                <p><strong>Bank BCA</strong></p>
+                <p>No. Rekening: 1234567890</p>
+                <p>Atas Nama: [Nama Mempelai Pria]</p>
+                <button class="copy-rek" data-account="1234567890"><i class="far fa-copy"></i> Salin No. Rekening</button>
+            </div>
+            <div class="bank-details">
+                <p><strong>Bank Mandiri</strong></p>
+                <p>No. Rekening: 0987654321</p>
+                <p>Atas Nama: [Nama Mempelai Wanita]</p>
+                <button class="copy-rek" data-account="0987654321"><i class="far fa-copy"></i> Salin No. Rekening</button>
+            </div>
+            <p class="gift-note">Untuk konfirmasi pengiriman hadiah fisik, silakan hubungi: <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i> [Nomor Telepon Konfirmasi]</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 [Nama Mempelai Pria] & [Nama Mempelai Wanita]. All Rights Reserved.</p>
+        <p>Created with ❤️ by [Your Name/Company Name]</p>
+    </footer>
+
+    <button id="music-toggle" class="music-toggle">
+        <span class="icon"><i class="fas fa-music"></i></span>
+    </button>
+    <audio id="background-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

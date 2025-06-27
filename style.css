@@ -1,0 +1,854 @@
+/* General Styling */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f7f4;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #5d4a3e;
+}
+
+a {
+    color: #a08a7b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x1080/8a6e5b/ffffff?text=Wedding+Background') no-repeat center center/cover;
+    background-attachment: fixed; /* Make background fixed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    z-index: 1000;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
+}
+
+.welcome-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.welcome-content {
+    max-width: 800px;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.welcome-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.welcome-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+#open-invitation-btn {
+    background-color: #a08a7b;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#open-invitation-btn:hover {
+    background-color: #8c786a;
+    transform: translateY(-3px);
+}
+
+/* Header & Navigation */
+header {
+    background-color: #f9f7f4;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 18px;
+}
+
+nav ul li a {
+    font-family: 'Playfair Display', serif;
+    color: #5d4a3e;
+    font-weight: 600;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #a08a7b;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #a08a7b;
+}
+
+/* Sections */
+section {
+    padding: 100px 20px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+section:nth-child(even) {
+    background-color: #f3f1ed;
+}
+
+section h2 {
+    font-size: 2.8em;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #a08a7b;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.8)), url('https://via.placeholder.com/1920x800/e0d8cf/ffffff?text=Elegant+Floral+Pattern') no-repeat center center/cover;
+    background-attachment: fixed;
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #5d4a3e;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.hero-content h1 {
+    font-size: 5em;
+    margin-bottom: 20px;
+    color: #5d4a3e;
+}
+
+.hero-content h2 {
+    font-size: 2.2em;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #777;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #666;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.countdown div {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    min-width: 110px;
+    transition: transform 0.3s ease;
+}
+
+.countdown div:hover {
+    transform: translateY(-5px);
+}
+
+.countdown span {
+    display: block;
+    font-size: 3em;
+    font-weight: bold;
+    color: #a08a7b;
+    margin-bottom: 8px;
+}
+
+.countdown p {
+    font-size: 1em;
+    text-transform: uppercase;
+    color: #5d4a3e;
+    letter-spacing: 1px;
+}
+
+/* Mempelai Section */
+.mempelai-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.mempelai-item {
+    text-align: center;
+    max-width: 350px;
+}
+
+.mempelai-item img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #a08a7b;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.mempelai-item img:hover {
+    transform: scale(1.05);
+}
+
+.mempelai-item h3 {
+    font-size: 2em;
+    margin-bottom: 12px;
+    color: #5d4a3e;
+}
+
+.mempelai-item p {
+    font-size: 1.2em;
+    color: #666;
+    font-style: italic;
+}
+
+.mempelai-and {
+    font-family: 'Playfair Display', serif;
+    font-size: 4em;
+    color: #a08a7b;
+    margin: 0 30px;
+}
+
+/* Acara Section */
+.acara-item {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.acara-item:hover {
+    transform: translateY(-10px);
+}
+
+.acara-item h3 {
+    font-size: 2.5em;
+    color: #a08a7b;
+    margin-bottom: 20px;
+}
+
+.acara-item p {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.btn-calendar {
+    display: inline-block;
+    background-color: #5d4a3e;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1em;
+}
+
+.btn-calendar:hover {
+    background-color: #4a3a2e;
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+/* Gallery Section */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.gallery-container img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Lokasi Section */
+#map {
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    margin-bottom: 40px;
+}
+
+.lokasi-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.btn-map {
+    background-color: #a08a7b;
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-map:hover {
+    background-color: #8c786a;
+    text-decoration: none;
+    transform: translateY(-3px);
+}
+
+/* RSVP & Ucapan Forms */
+form {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #5d4a3e;
+    font-size: 1.1em;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {
+    width: calc(100% - 24px); /* Account for padding and border */
+    padding: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button[type="submit"] {
+    background-color: #a08a7b;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+form button[type="submit"]:hover {
+    background-color: #8c786a;
+    transform: translateY(-3px);
+}
+
+.message {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #badbcc;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.greetings-list {
+    margin-top: 50px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.greeting-item {
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.greeting-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.greeting-item strong {
+    color: #5d4a3e;
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.greeting-item p {
+    margin-top: 5px;
+    color: #555;
+    font-style: italic;
+    font-size: 1em;
+}
+
+/* Gift Section */
+.gift .bank-details {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    margin: 25px auto;
+    max-width: 450px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.gift .bank-details:hover {
+    transform: translateY(-5px);
+}
+
+.gift .bank-details p {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.gift .bank-details strong {
+    color: #a08a7b;
+    font-size: 1.3em;
+}
+
+.gift .copy-rek {
+    background-color: #5d4a3e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.gift .copy-rek:hover {
+    background-color: #4a3a2e;
+    transform: translateY(-2px);
+}
+
+.gift-note {
+    margin-top: 40px;
+    font-style: italic;
+    color: #777;
+    font-size: 1.1em;
+}
+
+.gift-note a {
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: #5d4a3e;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 1em;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 8px 0;
+}
+
+/* Music Toggle Button */
+.music-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #a08a7b;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6em;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 100;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.music-toggle:hover {
+    background-color: #8c786a;
+    transform: scale(1.05);
+}
+
+.music-toggle .icon {
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome-content h1 {
+        font-size: 2.5em;
+    }
+    .welcome-content p {
+        font-size: 1.1em;
+    }
+    #open-invitation-btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5em;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-content p {
+        font-size: 1.3em;
+    }
+
+    .countdown {
+        gap: 20px;
+    }
+
+    .countdown div {
+        padding: 15px 20px;
+        min-width: 80px;
+    }
+
+    .countdown span {
+        font-size: 2.5em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    section {
+        padding: 60px 15px;
+    }
+
+    section h2 {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+
+    .mempelai-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .mempelai-and {
+        margin: 30px 0;
+        font-size: 3em;
+    }
+
+    .mempelai-item img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .mempelai-item h3 {
+        font-size: 1.6em;
+    }
+
+    .acara-item {
+        padding: 30px;
+    }
+
+    .acara-item h3 {
+        font-size: 2em;
+    }
+
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+    }
+
+    form {
+        padding: 30px;
+    }
+
+    form input[type="text"],
+    form input[type="number"],
+    form select,
+    form textarea {
+        width: calc(100% - 20px);
+        font-size: 1em;
+    }
+
+    form button[type="submit"] {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+
+    .greetings-list {
+        padding: 30px;
+    }
+
+    .gift .bank-details {
+        padding: 25px;
+    }
+
+    .music-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3em;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-content h1 {
+        font-size: 2em;
+    }
+    .welcome-content p {
+        font-size: 1em;
+    }
+    #open-invitation-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-content h2 {
+        font-size: 1.4em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .countdown {
+        gap: 10px;
+    }
+    .countdown div {
+        min-width: 60px;
+        padding: 10px 15px;
+    }
+    .countdown span {
+        font-size: 2em;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    .mempelai-item img {
+        width: 120px;
+        height: 120px;
+    }
+    .mempelai-item h3 {
+        font-size: 1.4em;
+    }
+
+    .acara-item {
+        padding: 20px;
+    }
+
+    .acara-item h3 {
+        font-size: 1.8em;
+    }
+
+    .btn-calendar, .btn-map {
+        padding: 10px 20px;
+        font-size: 0.9em;
+        gap: 5px;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    form label {
+        font-size: 1em;
+    }
+    form input[type="text"],
+    form input[type="number"],
+    form select,
+    form textarea {
+        font-size: 0.9em;
+    }
+    form button[type="submit"] {
+        font-size: 1em;
+    }
+
+    .greetings-list {
+        padding: 20px;
+    }
+
+    .greeting-item strong {
+        font-size: 1.1em;
+    }
+
+    .gift .bank-details p {
+        font-size: 1em;
+    }
+    .gift .bank-details strong {
+        font-size: 1.1em;
+    }
+    .gift .copy-rek {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+}
