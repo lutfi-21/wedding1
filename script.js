@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add your actual background music file path here
     // For example: backgroundMusic.src = 'assets/audio/beautiful-wedding-music.mp3';
     // Ensure you have an audio file named 'your-background-music.mp3' in the same directory or adjust the path.
-    backgroundMusic.src = 'your-background-music.mp3'; // IMPORTANT: Replace with your audio file path
+    backgroundMusic.src = 'music.mp3'; // IMPORTANT: Replace with your audio file path
 
     let isMusicPlaying = false; // Track music state
 
